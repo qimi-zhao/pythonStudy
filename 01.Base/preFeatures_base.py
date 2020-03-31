@@ -1,6 +1,7 @@
 # -*- coding: utf-8 -*-
 
 from collections import Iterable
+from collections.abc import Iterator
 
 """  高级特性 """
 
@@ -170,3 +171,20 @@ for i in range(11):
     except StopIteration as e:
         print('Generator return value:', e.value)
         break
+
+### 迭代器
+
+# 可以被next()函数调用并不断返回下一个值的对象称为迭代器：Iterator。
+print(isinstance((x for x in range(10)), Iterator))
+
+# 生成器都是Iterator对象，但list、dict、str虽然是Iterable，却不是Iterator。
+# 把list、dict、str等Iterable变成Iterator可以使用iter()函数：
+print(isinstance(iter('abc'), Iterator))
+
+# 迭代器的循环
+it = iter([1, 2, 3, 4, 5, 6])
+while True:
+    try:
+        x = next(it)
+    except StopIteration:
+        break;

@@ -56,9 +56,11 @@ print(classmates)
 L = ['Apple', 123, True]
 S = ['python', 'java', ['asp', 'php'], 'scheme']
 
+
 ### tuple  元组 ，和list非常类似，但是tuple一旦初始化就不能修改
 ### （此处不能修改指的是指向不能修改（如果元祖元素有list，则此list不可变，list元素可变））
 classmates = ('Michael', 'Bob', 'Tracy')
+
 
 ### 字典值
 ### 查找和插入的速度极快，不会随着key的增加而变慢；
