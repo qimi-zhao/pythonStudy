@@ -28,7 +28,7 @@ def my_abs_1(x):
 #print(my_abs_1('A'))
 
 ### 多个返回值的函数
-def move(x, y, step, angle):
+""" def move(x, y, step, angle):
     nx = x + step * math.cos(angle)
     ny = y - step * math.sin(angle)
     return nx, ny
@@ -36,7 +36,7 @@ def move(x, y, step, angle):
 x, y = move(100, 100, 60, math.pi / 6)
 print('x=',x,' y=', y)
 l = move(100, 100, 60, math.pi / 6)  # 其实返回值是一个tuple
-print('l = ',l)
+print('l = ',l) """
 
 # 请定义一个函数quadratic(a, b, c)，接收3个参数，返回一元二次方程 ax^2+bx+c=0 的两个解。
 def quadratic(a, b, c):
@@ -90,7 +90,7 @@ def person(name, age, **kw):
 
 person('Jack', 24, city='Beijing', addr='Chaoyang', zipcode=123456)
 
-### 命名参数
+""" ### 命名参数
 def person(name, age, *, city, job):
     print(name, age, city, job)
 
@@ -103,7 +103,7 @@ def person(name, age, *args, city, job):
 
 #命名关键字参数可以有缺省值，从而简化调用
 def person(name, age, *, city='Beijing', job):
-    print(name, age, city, job)
+    print(name, age, city, job) """
 
 ### 参数组合
 # 在Python中定义函数，可以用必选参数、默认参数、可变参数、关键字参数和命名关键字参数.
@@ -156,8 +156,8 @@ print(fact(5))
 
 # 尾递归是指在函数返回的时候，调用自身本身，并且，return语句不能包含表达式。
 # 这样，编译器或者解释器就可以把尾递归做优化，使递归本身无论调用多少次，都只占用一个栈帧，不会出现栈溢出的情况
-def fact(n):
-    return fact_iter(n, 1)
+""" def fact(n):
+    return fact_iter(n, 1) """
 
 def fact_iter(num, product):
     if num == 1:
