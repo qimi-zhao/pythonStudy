@@ -13,11 +13,10 @@ class Solution:
         if len(nums) < 2:
             return []
         nums = sorted(nums)
-        # return self.findIndex(target, 0, len(nums) - 1, nums)
+        #return self.findIndex(target, 0, len(nums) - 1, nums)
         return self.findIndexByDict(nums, target)
 
     def findIndex(self, target : int, start, end, nums: List[int]) -> List[int]:
-
         if start >= end:
             return []
         elif nums[start] + nums[end] == target:
