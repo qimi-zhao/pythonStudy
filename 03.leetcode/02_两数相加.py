@@ -1,11 +1,13 @@
 # Definition for singly-linked list.
+import sys, os
+from json import tool
 from typing import List
 
-
-class ListNode:
-    def __init__(self, val=0, next=None):
-        self.val = val
-        self.next = next
+# 导入相对路径工程类
+this_dir = os.path.dirname(__file__) + '/../lib' #工程类路径
+sys.path.append(this_dir) # 添加进系统资源列表
+from tool import ListNode
+from tool import makeData
 
 class Solution:
     def addTwoNumbers1(self, l1: ListNode, l2: ListNode) -> ListNode:
@@ -17,7 +19,7 @@ class Solution:
             y = l2.val if l2 else 0
             s = flag + x + y
             flag = s // 10
-            befor.next = ListNode(s%10)
+            befor.next = ListNode(s % 10)
             befor = befor.next
             if(l1 != None): l1 = l1.next 
             if(l2 != None): l2 = l2.next 
@@ -86,36 +88,30 @@ class Solution:
         bf.next = af
         return l1.next
 
-# 0 -> 1 -> 5 -> 4
-l11 = ListNode(9, None)
-l12 = ListNode(9, None)
-l13 = ListNode(9, None)
-l14 = ListNode(9, None)
-l11.next = l12
-l12.next = l13
-l13.next = l14
-
-# 0 -> 9 -> 5 -> 5
-l21 = ListNode(9, None)
-l22 = ListNode(9, None)
-l23 = ListNode(9, None)
-l24 = ListNode(9, None)
-l25 = ListNode(9, None)
-l26 = ListNode(9, None)
-l27 = ListNode(9, None)
-l21.next = l22
-l22.next = l23
-l23.next = l24
-l24.next = l25
-l25.next = l26
-l26.next = l27
-
-
 sol = Solution()
-l3 = sol.addTwoNumbers1(l21, l11)
-#a = sol.listToInt(l11)
-#b = sol.listToInt(l21)
-#l3 = sol.intToList(a + b)
+mk = makeData()
+
+# 0154 + 0955
+l1 = mk.createList([0, 1, 5, 4])
+l2 = mk.createList([0, 9, 5, 5])
+l3 = sol.addTwoNumbers1(l1, l2)
+
+output = 0
+coefficient = 1
 while l3 != None:
-    print(l3.val)
+    output = output + l3.val * coefficient
+    coefficient = coefficient * 10
     l3 = l3.next
+print(output)
+
+# 9999 + 9999999
+l1 = mk.createList([9, 9, 9, 9])
+l2 = mk.createList([9, 9, 9, 9, 9, 9, 9])
+l3 = sol.addTwoNumbers1(l1, l2)
+output = 0
+coefficient = 1
+while l3 != None:
+    output = output + l3.val * coefficient
+    coefficient = coefficient * 10
+    l3 = l3.next
+print(output)
