@@ -11,3 +11,13 @@ class logWriter():
             print('connect Default')
 
         self.lf.close()
+    
+    def clean(self):
+        self.lf = open(r'./tmp/log.txt', 'w')
+
+        try:
+            self.lf.write("clean success!\r\n")
+        except ConnectionError:
+            print('connect Default')
+
+        self.lf.close()

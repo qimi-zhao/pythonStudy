@@ -14,13 +14,13 @@ class Solution:
         if len(s) <= 1:                                       # 长度小于1时返回长度
             return len(s)
 
-        max = 0                                               # 最大长度
-        while len(s) > max:                                   # 剩下字符串大于最大长度才会寻找
+        ans = 0                                               # 最大长度
+        while len(s) > ans:                                   # 剩下字符串大于最大长度才会寻找
             length, start = self.lengthOfLongeFromStart(s)    # 计算从当前位置开始最长不重复子串长度
-            max = max if max > length else length             # 记录最大值
+            ans = ans if ans > length else length             # 记录最大值
             s = s[start:]                                     # 更新起始位置
         
-        return max
+        return ans
 
     ###########################################################
     #
@@ -56,7 +56,7 @@ class Solution:
                 start = max(dict[s[index]], start)
             ans = max(ans, index - start + 1)
             dict[s[index]] = index + 1
-        return ans;
+        return ans
 
 
 sol = Solution()
